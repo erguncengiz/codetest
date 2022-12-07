@@ -85,7 +85,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         switch item {
         case .cell(let model):
             guard let cell = cell as? GroceryCollectionViewCell else { return }
-            cell.willDisplay(imageUrl: URL(string: model.imageUrl ?? R.ImageURLS.getDefaultImage.getUrl()), price: model.price, name: model.name, currency: model.currency)
+            cell.willDisplay(model: model)
         case .none:
             break
         }
