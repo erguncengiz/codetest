@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EA0FCE9E294074D900C577F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FCE9D294074D900C577F2 /* AppDelegate.swift */; };
-		EA0FCEA0294074D900C577F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FCE9F294074D900C577F2 /* SceneDelegate.swift */; };
-		EA0FCEA2294074D900C577F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FCEA1294074D900C577F2 /* ViewController.swift */; };
-		EA0FCEA5294074D900C577F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA0FCEA3294074D900C577F2 /* Main.storyboard */; };
 		EA0FCEA7294074DA00C577F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA0FCEA6294074DA00C577F2 /* Assets.xcassets */; };
 		EA0FCEAA294074DA00C577F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA0FCEA8294074DA00C577F2 /* LaunchScreen.storyboard */; };
 		EA0FCEB3294077C200C577F2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FCEB2294077C200C577F2 /* NetworkManager.swift */; };
@@ -22,14 +19,22 @@
 		EA0FCEC329407A1A00C577F2 /* NavigatorFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FCEC229407A1A00C577F2 /* NavigatorFlowController.swift */; };
 		EA0FCEC629407A7800C577F2 /* DependencyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FCEC529407A7800C577F2 /* DependencyFactory.swift */; };
 		EA0FCEC929407AAB00C577F2 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FCEC829407AAB00C577F2 /* ViewControllerFactory.swift */; };
+		EA0FCECE29407D8B00C577F2 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FCECC29407D8B00C577F2 /* SplashViewController.swift */; };
+		EA0FCECF29407D8B00C577F2 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA0FCECD29407D8B00C577F2 /* SplashViewController.xib */; };
+		EA0FCED729407FD400C577F2 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FCED129407FD400C577F2 /* HomePresenter.swift */; };
+		EA0FCED829407FD400C577F2 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FCED229407FD400C577F2 /* HomeRouter.swift */; };
+		EA0FCED929407FD400C577F2 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FCED329407FD400C577F2 /* HomeModels.swift */; };
+		EA0FCEDA29407FD400C577F2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FCED429407FD400C577F2 /* HomeViewController.swift */; };
+		EA0FCEDB29407FD400C577F2 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FCED529407FD400C577F2 /* HomeInteractor.swift */; };
+		EA0FCEDC29407FD400C577F2 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA0FCED629407FD400C577F2 /* HomeView.xib */; };
+		EA0FCEDE2940806800C577F2 /* HomeViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FCEDD2940806800C577F2 /* HomeViewControllerFactory.swift */; };
+		EA0FCEE02940810D00C577F2 /* HomeFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FCEDF2940810D00C577F2 /* HomeFlow.swift */; };
+		EA0FCEE2294083CC00C577F2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FCEE1294083CC00C577F2 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EA0FCE9A294074D900C577F2 /* app-logist-code-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "app-logist-code-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0FCE9D294074D900C577F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EA0FCE9F294074D900C577F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EA0FCEA1294074D900C577F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EA0FCEA4294074D900C577F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EA0FCEA6294074DA00C577F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA0FCEA9294074DA00C577F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA0FCEAB294074DA00C577F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,6 +45,17 @@
 		EA0FCEC229407A1A00C577F2 /* NavigatorFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorFlowController.swift; sourceTree = "<group>"; };
 		EA0FCEC529407A7800C577F2 /* DependencyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyFactory.swift; sourceTree = "<group>"; };
 		EA0FCEC829407AAB00C577F2 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		EA0FCECC29407D8B00C577F2 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		EA0FCECD29407D8B00C577F2 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		EA0FCED129407FD400C577F2 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		EA0FCED229407FD400C577F2 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		EA0FCED329407FD400C577F2 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
+		EA0FCED429407FD400C577F2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EA0FCED529407FD400C577F2 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		EA0FCED629407FD400C577F2 /* HomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
+		EA0FCEDD2940806800C577F2 /* HomeViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerFactory.swift; sourceTree = "<group>"; };
+		EA0FCEDF2940810D00C577F2 /* HomeFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFlow.swift; sourceTree = "<group>"; };
+		EA0FCEE1294083CC00C577F2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,16 +90,15 @@
 		EA0FCE9C294074D900C577F2 /* app-logist-code-test */ = {
 			isa = PBXGroup;
 			children = (
+				EA0FCEB1294077B400C577F2 /* Service */,
 				EA0FCEC429407A5700C577F2 /* Factories */,
 				EA0FCEBA2940797400C577F2 /* Flows */,
-				EA0FCEB1294077B400C577F2 /* Service */,
+				EA0FCECA29407C7200C577F2 /* Scenes */,
 				EA0FCE9D294074D900C577F2 /* AppDelegate.swift */,
-				EA0FCE9F294074D900C577F2 /* SceneDelegate.swift */,
-				EA0FCEA1294074D900C577F2 /* ViewController.swift */,
-				EA0FCEA3294074D900C577F2 /* Main.storyboard */,
 				EA0FCEA6294074DA00C577F2 /* Assets.xcassets */,
 				EA0FCEA8294074DA00C577F2 /* LaunchScreen.storyboard */,
 				EA0FCEAB294074DA00C577F2 /* Info.plist */,
+				EA0FCEE1294083CC00C577F2 /* main.swift */,
 			);
 			path = "app-logist-code-test";
 			sourceTree = "<group>";
@@ -101,6 +116,7 @@
 			children = (
 				EA0FCEBB2940798100C577F2 /* Base */,
 				EA0FCEBC2940798F00C577F2 /* AppFlow.swift */,
+				EA0FCEDF2940810D00C577F2 /* HomeFlow.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -128,8 +144,40 @@
 			isa = PBXGroup;
 			children = (
 				EA0FCEC829407AAB00C577F2 /* ViewControllerFactory.swift */,
+				EA0FCEDD2940806800C577F2 /* HomeViewControllerFactory.swift */,
 			);
 			path = ViewControllerFactories;
+			sourceTree = "<group>";
+		};
+		EA0FCECA29407C7200C577F2 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				EA0FCECB29407C7A00C577F2 /* Splash */,
+				EA0FCED029407FAE00C577F2 /* Home */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		EA0FCECB29407C7A00C577F2 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				EA0FCECC29407D8B00C577F2 /* SplashViewController.swift */,
+				EA0FCECD29407D8B00C577F2 /* SplashViewController.xib */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		EA0FCED029407FAE00C577F2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				EA0FCED129407FD400C577F2 /* HomePresenter.swift */,
+				EA0FCED229407FD400C577F2 /* HomeRouter.swift */,
+				EA0FCED329407FD400C577F2 /* HomeModels.swift */,
+				EA0FCED429407FD400C577F2 /* HomeViewController.swift */,
+				EA0FCED529407FD400C577F2 /* HomeInteractor.swift */,
+				EA0FCED629407FD400C577F2 /* HomeView.xib */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,7 +248,8 @@
 			files = (
 				EA0FCEAA294074DA00C577F2 /* LaunchScreen.storyboard in Resources */,
 				EA0FCEA7294074DA00C577F2 /* Assets.xcassets in Resources */,
-				EA0FCEA5294074D900C577F2 /* Main.storyboard in Resources */,
+				EA0FCECF29407D8B00C577F2 /* SplashViewController.xib in Resources */,
+				EA0FCEDC29407FD400C577F2 /* HomeView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,28 +262,27 @@
 			files = (
 				EA0FCEC1294079F800C577F2 /* Navigator.swift in Sources */,
 				EA0FCEC929407AAB00C577F2 /* ViewControllerFactory.swift in Sources */,
+				EA0FCEE2294083CC00C577F2 /* main.swift in Sources */,
 				EA0FCEB3294077C200C577F2 /* NetworkManager.swift in Sources */,
-				EA0FCEA2294074D900C577F2 /* ViewController.swift in Sources */,
+				EA0FCEDB29407FD400C577F2 /* HomeInteractor.swift in Sources */,
+				EA0FCEE02940810D00C577F2 /* HomeFlow.swift in Sources */,
+				EA0FCED729407FD400C577F2 /* HomePresenter.swift in Sources */,
+				EA0FCEDA29407FD400C577F2 /* HomeViewController.swift in Sources */,
 				EA0FCE9E294074D900C577F2 /* AppDelegate.swift in Sources */,
+				EA0FCEDE2940806800C577F2 /* HomeViewControllerFactory.swift in Sources */,
+				EA0FCED929407FD400C577F2 /* HomeModels.swift in Sources */,
+				EA0FCED829407FD400C577F2 /* HomeRouter.swift in Sources */,
 				EA0FCEC629407A7800C577F2 /* DependencyFactory.swift in Sources */,
 				EA0FCEBD2940798F00C577F2 /* AppFlow.swift in Sources */,
-				EA0FCEA0294074D900C577F2 /* SceneDelegate.swift in Sources */,
 				EA0FCEBF294079E200C577F2 /* FlowController.swift in Sources */,
 				EA0FCEC329407A1A00C577F2 /* NavigatorFlowController.swift in Sources */,
+				EA0FCECE29407D8B00C577F2 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		EA0FCEA3294074D900C577F2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EA0FCEA4294074D900C577F2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EA0FCEA8294074DA00C577F2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -372,7 +420,7 @@
 				INFOPLIST_FILE = "app-logist-code-test/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -400,7 +448,7 @@
 				INFOPLIST_FILE = "app-logist-code-test/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

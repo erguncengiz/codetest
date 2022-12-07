@@ -13,6 +13,11 @@ protocol NavigatorProtocol {
 
 class Navigator: NavigatorProtocol {
     enum Destination {
+        enum Home {
+            case home
+        }
+        
+        case home(Home)
         case splash
     }
     

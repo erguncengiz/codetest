@@ -26,6 +26,14 @@ class AppFlow: NavigationFlowController, AppFlowProtocol {
         switch destination {
         case .splash:
             push(viewController: dependency.viewFactory.makeSplash(dependency: dependency), animated: animated)
+        case .home(let sub):
+            route(to: sub, animated: animated)
         }
+    }
+    
+    func route(to destination: Navigator.Destination.Home, animated: Bool) {
+        let flow = HomeFlow(dependency: dependency)
+        flow.route(to: destination, animated: false)
+        push(viewController: flow, animated: animated)
     }
 }

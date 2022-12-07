@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol ViewControllerFactoryProtocol {
+protocol ViewControllerFactoryProtocol: HomeViewControllerFactoryProtocol {
     func makeSplash(dependency: DependencyFactoryProtocol) -> UIViewController
 }
 
@@ -18,6 +18,8 @@ struct ViewControllerFactory: ViewControllerFactoryProtocol {
     private init(){}
     
     func makeSplash(dependency: DependencyFactoryProtocol) -> UIViewController {
-        return UIViewController()
+        let viewController = SplashViewController(nibName: "SplashViewController", bundle: nil)
+        //set viewController values
+        return viewController
     }
 }
