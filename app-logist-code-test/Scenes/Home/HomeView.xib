@@ -4,11 +4,14 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="app_logist_code_test" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="Qyi-u0-Een" id="KMr-Ih-xkd"/>
+                <outlet property="collectionView" destination="aGB-ng-Zhp" id="ce9-hq-ZkA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,20 +20,44 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vd-WC-Oo3">
-                    <rect key="frame" x="182.5" y="444.5" width="49" height="21"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="aGB-ng-Zhp">
+                    <rect key="frame" x="0.0" y="123" width="414" height="739"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2HT-Tx-XDJ">
+                        <size key="itemSize" width="150" height="240"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mini Bakkal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZR-BE-E34">
+                    <rect key="frame" x="164" y="65" width="86" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Qyi-u0-Een">
+                    <rect key="frame" x="188.5" y="436.5" width="37" height="37"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="8j8-uf-2JT"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="6vd-WC-Oo3" firstAttribute="centerY" secondItem="8j8-uf-2JT" secondAttribute="centerY" id="j6N-3B-FP4"/>
-                <constraint firstItem="6vd-WC-Oo3" firstAttribute="centerX" secondItem="8j8-uf-2JT" secondAttribute="centerX" id="tp3-3B-Lgn"/>
+                <constraint firstItem="vZR-BE-E34" firstAttribute="top" secondItem="8j8-uf-2JT" secondAttribute="top" constant="17" id="12L-tX-ikY"/>
+                <constraint firstItem="Qyi-u0-Een" firstAttribute="centerX" secondItem="8j8-uf-2JT" secondAttribute="centerX" id="6Rq-yg-dcb"/>
+                <constraint firstItem="aGB-ng-Zhp" firstAttribute="leading" secondItem="8j8-uf-2JT" secondAttribute="leading" id="Qdf-Ov-c5Q"/>
+                <constraint firstItem="aGB-ng-Zhp" firstAttribute="top" secondItem="vZR-BE-E34" secondAttribute="bottom" constant="37" id="Xou-XD-Ede"/>
+                <constraint firstItem="8j8-uf-2JT" firstAttribute="bottom" secondItem="aGB-ng-Zhp" secondAttribute="bottom" id="Zfw-TI-mbu"/>
+                <constraint firstItem="aGB-ng-Zhp" firstAttribute="trailing" secondItem="8j8-uf-2JT" secondAttribute="trailing" id="kwM-My-Pk9"/>
+                <constraint firstItem="vZR-BE-E34" firstAttribute="centerX" secondItem="8j8-uf-2JT" secondAttribute="centerX" id="po2-Fy-7eb"/>
+                <constraint firstItem="Qyi-u0-Een" firstAttribute="centerY" secondItem="8j8-uf-2JT" secondAttribute="centerY" id="udc-ex-Ub1"/>
             </constraints>
-            <point key="canvasLocation" x="-569" y="2"/>
+            <point key="canvasLocation" x="-569.56521739130437" y="1.3392857142857142"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

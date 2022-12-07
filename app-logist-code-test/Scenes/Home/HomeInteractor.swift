@@ -3,13 +3,12 @@
 //  app-logist-code-test
 //
 //  Created by Ergün Yunus Cengiz on 7.12.2022.
-//  Copyright (c) 2022 ___ORGANIZATIONNAME___. All rights reserved.
-//
 
 import UIKit
+import Alamofire
 
 protocol HomeBusinessLogic {
-    func handle(request: Home.Something.Request)
+    func handle(request: Home.Grocery.Request)
 }
 
 class HomeInteractor: HomeBusinessLogic {
@@ -17,8 +16,17 @@ class HomeInteractor: HomeBusinessLogic {
     
     // MARK: Business Logic
 
-    func handle(request: Home.Something.Request) {
-        let response = Home.Something.Response()
-        presenter?.present(response: response)
+    func handle(request: Home.Grocery.Request) {
+        NetworkManager.shared.request(.get, url: R.Endpoints.getGroceries.getUrl(), requestModel: nil, model: [Home.Product].self) { response in
+            switch(response)
+            {
+                case .success(let model):
+                let response = Home.Grocery.Response(result: model as? [Home.Product])
+                self.presenter?.present(response: response)
+            
+                case .failure(_): print("ERROR!")
+            }
+        }
+        
     }
 }
