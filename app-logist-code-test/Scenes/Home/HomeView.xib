@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,8 +20,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="aGB-ng-Zhp">
-                    <rect key="frame" x="0.0" y="123" width="414" height="739"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <rect key="frame" x="0.0" y="131" width="414" height="731"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2HT-Tx-XDJ">
                         <size key="itemSize" width="150" height="240"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -31,20 +30,28 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mini Bakkal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZR-BE-E34">
-                    <rect key="frame" x="164" y="65" width="86" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="145" y="65" width="124" height="29"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Qyi-u0-Een">
                     <rect key="frame" x="188.5" y="436.5" width="37" height="37"/>
                 </activityIndicatorView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hl8-62-kkP">
+                    <rect key="frame" x="350" y="59" width="54" height="34"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="basket" catalog="system" title=""/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="8j8-uf-2JT"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="vZR-BE-E34" firstAttribute="top" secondItem="8j8-uf-2JT" secondAttribute="top" constant="17" id="12L-tX-ikY"/>
                 <constraint firstItem="Qyi-u0-Een" firstAttribute="centerX" secondItem="8j8-uf-2JT" secondAttribute="centerX" id="6Rq-yg-dcb"/>
+                <constraint firstItem="hl8-62-kkP" firstAttribute="top" secondItem="8j8-uf-2JT" secondAttribute="top" constant="11" id="LUC-6j-HOo"/>
+                <constraint firstItem="8j8-uf-2JT" firstAttribute="trailing" secondItem="hl8-62-kkP" secondAttribute="trailing" constant="10" id="QHd-Vf-Sps"/>
                 <constraint firstItem="aGB-ng-Zhp" firstAttribute="leading" secondItem="8j8-uf-2JT" secondAttribute="leading" id="Qdf-Ov-c5Q"/>
                 <constraint firstItem="aGB-ng-Zhp" firstAttribute="top" secondItem="vZR-BE-E34" secondAttribute="bottom" constant="37" id="Xou-XD-Ede"/>
                 <constraint firstItem="8j8-uf-2JT" firstAttribute="bottom" secondItem="aGB-ng-Zhp" secondAttribute="bottom" id="Zfw-TI-mbu"/>
@@ -56,8 +63,6 @@
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="basket" catalog="system" width="128" height="108"/>
     </resources>
 </document>
