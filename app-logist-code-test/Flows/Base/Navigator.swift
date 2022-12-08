@@ -5,8 +5,6 @@
 //  Created by Ergün Yunus Cengiz on 7.12.2022.
 //
 
-import Foundation
-
 protocol NavigatorProtocol {
     func to(_ destination: Navigator.Destination, animated: Bool)
 }
@@ -17,7 +15,12 @@ class Navigator: NavigatorProtocol {
             case home
         }
         
+        enum Basket {
+            case home
+        }
+        
         case home(Home)
+        case basket(HomeViewController)
         case splash
     }
     

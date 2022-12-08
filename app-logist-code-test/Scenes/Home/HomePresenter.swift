@@ -8,9 +8,11 @@ import UIKit
 
 protocol HomePresentationLogic {
     func present(response: Home.Grocery.Response)
+    func sendCountOfBasket(count: Int)
 }
 
 class HomePresenter: HomePresentationLogic {
+    
     weak var viewController: HomeDisplayLogic?
     
     // MARK: Presentation Logic
@@ -20,7 +22,7 @@ class HomePresenter: HomePresentationLogic {
         viewController?.didReceiveData()
     }
     
-    func getCells(entity: [Home.Product]) -> [Home.Cell]{
+    func getCells(entity: [Home.Product]) -> [Home.Cell] {
         var cells = [Home.Cell]()
         for item in entity {
             cells.append(.cell(model: Home.Product(
@@ -33,5 +35,9 @@ class HomePresenter: HomePresentationLogic {
             )
         }
         return cells
+    }
+    
+    func sendCountOfBasket(count: Int) {
+        viewController?.setCurrentBasketCount(count: count)
     }
 }
