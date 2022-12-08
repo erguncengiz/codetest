@@ -7,7 +7,7 @@
 import UIKit
 
 protocol HomeRoutingLogic {
-    func routeToSomeWhere()
+    func routeToBasket(vc: HomeViewController)
 }
 
 class HomeRouter: NSObject, HomeRoutingLogic {
@@ -15,7 +15,8 @@ class HomeRouter: NSObject, HomeRoutingLogic {
 
     // MARK: Routing Logic
     
-    func routeToSomeWhere() {
-        
+    func routeToBasket(vc: HomeViewController) {
+        let flow: AppFlowProtocol? = viewController?.flow()
+        flow?.route(to: .basket(vc), animated: true)
     }
 }

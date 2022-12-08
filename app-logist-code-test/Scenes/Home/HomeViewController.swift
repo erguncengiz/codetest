@@ -9,6 +9,9 @@ import UIKit
 protocol HomeDisplayLogic: AnyObject {
     func display(viewModel: Home.Grocery.ViewModel)
     func didReceiveData()
+    func setSelectedGrocery(index: Int, count: Int?, grocery: Home.Product?)
+    func removeSelectedGrocery(index: Int)
+    func setCurrentBasketCount(count: Int)
 }
 
 class HomeViewController: UIViewController, HomeDisplayLogic {
@@ -17,12 +20,12 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet weak var basketCountLabel: UILabel!
     
     // MARK: Variables
     
     var interactor: HomeBusinessLogic?
     var router: (NSObjectProtocol & HomeRoutingLogic)?
-    
     var cells: [Home.Cell]?
     
     // MARK: View lifecycle
@@ -30,11 +33,12 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
+        configureCountLabel()
         let request = Home.Grocery.Request()
         interactor?.handle(request: request)
     }
     
-    func configureCollectionView(){
+    func configureCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
         GroceryCollectionViewCell.registerWithNib(to: collectionView)
@@ -54,6 +58,12 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         flowLayout.sectionInset = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
     }
     
+    func configureCountLabel() {
+        basketCountLabel.backgroundColor = .orange
+        basketCountLabel.layer.cornerRadius = 8
+        basketCountLabel.layer.masksToBounds = true
+    }
+    
     // MARK: Requests
     
     func display(viewModel: Home.Grocery.ViewModel) {
@@ -66,6 +76,22 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
             self.collectionView.isHidden = false
             self.collectionView.reloadData()
         }
+    }
+    
+    func setSelectedGrocery(index: Int, count: Int?, grocery: Home.Product?) {
+        interactor?.setSelectedGrocery(index: index, count: count, grocery: grocery)
+    }
+    
+    func removeSelectedGrocery(index: Int) {
+        interactor?.removeSelectedGrocery(index: index)
+    }
+    
+    func setCurrentBasketCount(count: Int) {
+        basketCountLabel.text = "\(count)"
+    }
+    
+    @IBAction func didBasketClicked(_ sender: Any) {
+        router?.routeToBasket(vc: self)
     }
 }
 
@@ -85,7 +111,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         switch item {
         case .cell(let model):
             guard let cell = cell as? GroceryCollectionViewCell else { return }
-            cell.willDisplay(model: model)
+            cell.willDisplay(model: model, index: indexPath.row, viewController: self)
         case .none:
             break
         }

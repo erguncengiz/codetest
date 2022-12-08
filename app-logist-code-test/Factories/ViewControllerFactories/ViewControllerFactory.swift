@@ -5,11 +5,11 @@
 //  Created by Ergün Yunus Cengiz on 7.12.2022.
 //
 
-import Foundation
 import UIKit
 
-protocol ViewControllerFactoryProtocol: HomeViewControllerFactoryProtocol {
+protocol ViewControllerFactoryProtocol: HomeViewControllerFactoryProtocol, BasketViewControllerFactoryProtocol {
     func makeSplash(dependency: DependencyFactoryProtocol) -> UIViewController
+    func makeBasket(dependency: DependencyFactoryProtocol, rootVC: HomeViewController) -> UIViewController
 }
 
 struct ViewControllerFactory: ViewControllerFactoryProtocol {
@@ -22,4 +22,12 @@ struct ViewControllerFactory: ViewControllerFactoryProtocol {
         //set viewController values
         return viewController
     }
+    
+    func makeBasket(dependency: DependencyFactoryProtocol, rootVC: HomeViewController) -> UIViewController {
+        let viewController = BasketViewController(nibName: "BasketView", bundle: nil)
+        //set viewController values
+        viewController.rootVC = rootVC
+        return viewController
+    }
+    
 }

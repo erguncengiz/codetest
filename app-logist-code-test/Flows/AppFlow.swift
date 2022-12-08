@@ -28,6 +28,8 @@ class AppFlow: NavigationFlowController, AppFlowProtocol {
             push(viewController: dependency.viewFactory.makeSplash(dependency: dependency), animated: animated)
         case .home(let sub):
             route(to: sub, animated: animated)
+        case .basket(let vc):
+            push(viewController: dependency.viewFactory.makeBasket(dependency: dependency, rootVC: vc), animated: animated)
         }
     }
     
@@ -36,4 +38,10 @@ class AppFlow: NavigationFlowController, AppFlowProtocol {
         flow.route(to: destination, animated: false)
         push(viewController: flow, animated: animated)
     }
+    
+//    func route(to destination: Navigator.Destination.Basket, animated: Bool) {
+//        let flow = BasketFlow(dependency: dependency)
+//        flow.route(to: destination, animated: false)
+//        push(viewController: flow, animated: animated)
+//    }
 }

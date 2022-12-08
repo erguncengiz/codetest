@@ -14,8 +14,13 @@ class GroceryCollectionViewCell: UICollectionViewCell {
     
     static let identifier: String = "GroceryCollectionViewCell"
     var currentStock = 0
+    var currentIndex = 0
     var addedStock = 0
     var minusIsHidden = true
+    var selectedProducts: [Home.Product] = []
+    var currentModel: Home.Product?
+    var viewController: HomeViewController?
+    
     // MARK: Outlets
     
     @IBOutlet weak var plusButton: UIButton!
@@ -34,13 +39,17 @@ class GroceryCollectionViewCell: UICollectionViewCell {
         self.minusButton.isHidden = minusIsHidden
     }
     
-    func willDisplay(model: Home.Product) {
+    func willDisplay(model: Home.Product, index: Int, viewController: HomeViewController) {
         self.layer.cornerRadius = 8
+        self.viewController = viewController
+        currentModel = model
         imageView.sd_setImage(with: URL(string: model.imageUrl ?? ""))
         nameLabel.text = model.name
         priceLabel.text = "\(model.price ?? 0.00) \(model.currency ?? "")"
         currentStock = model.stock ?? 0
+        currentIndex = index
     }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         minusButton.isHidden = minusIsHidden
@@ -56,10 +65,10 @@ class GroceryCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func plusClicked(_ sender: Any){
-        print(addedStock)
         minusIsHidden = false
         if addedStock < currentStock  {
             addedStock += 1
+            viewController?.setSelectedGrocery(index: currentIndex, count: addedStock, grocery: currentModel)
         }
         counterLabel.text = "\(addedStock)"
     }
@@ -67,8 +76,10 @@ class GroceryCollectionViewCell: UICollectionViewCell {
     @IBAction func minusClicked(_ sender: Any){
         if addedStock > 0  {
             addedStock -= 1
+            viewController?.setSelectedGrocery(index: currentIndex, count: addedStock, grocery: currentModel)
             if addedStock == 0 {
                 minusIsHidden = true
+                viewController?.removeSelectedGrocery(index: currentIndex)
             }
         }
         counterLabel.text = "\(addedStock)"

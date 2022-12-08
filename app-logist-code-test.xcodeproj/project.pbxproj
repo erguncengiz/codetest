@@ -35,6 +35,17 @@
 		EA0FCEED2940A6BD00C577F2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FCEEC2940A6BD00C577F2 /* Constants.swift */; };
 		EA0FCEEF2940AC9800C577F2 /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FCEEE2940AC9800C577F2 /* UICollectionViewCell.swift */; };
 		EA0FCEF22940B79A00C577F2 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = EA0FCEF12940B79A00C577F2 /* SDWebImage */; };
+		EA4482FC2940DD20005A4235 /* BasketPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4482F62940DD20005A4235 /* BasketPresenter.swift */; };
+		EA4482FD2940DD20005A4235 /* BasketRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4482F72940DD20005A4235 /* BasketRouter.swift */; };
+		EA4482FE2940DD20005A4235 /* BasketModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4482F82940DD20005A4235 /* BasketModels.swift */; };
+		EA4482FF2940DD20005A4235 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4482F92940DD20005A4235 /* BasketViewController.swift */; };
+		EA4483002940DD20005A4235 /* BasketInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4482FA2940DD20005A4235 /* BasketInteractor.swift */; };
+		EA4483012940DD20005A4235 /* BasketView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4482FB2940DD20005A4235 /* BasketView.xib */; };
+		EA4483032941CD47005A4235 /* BasketViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4483022941CD47005A4235 /* BasketViewControllerFactory.swift */; };
+		EA4483052941CE65005A4235 /* BasketFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4483042941CE65005A4235 /* BasketFlow.swift */; };
+		EA4483102941D3F5005A4235 /* BasketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44830E2941D3F5005A4235 /* BasketTableViewCell.swift */; };
+		EA4483112941D3F5005A4235 /* BasketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA44830F2941D3F5005A4235 /* BasketTableViewCell.xib */; };
+		EA4483132941D443005A4235 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4483122941D443005A4235 /* UITableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +76,17 @@
 		EA0FCEE529408F9D00C577F2 /* GroceryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroceryCollectionViewCell.xib; sourceTree = "<group>"; };
 		EA0FCEEC2940A6BD00C577F2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EA0FCEEE2940AC9800C577F2 /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
+		EA4482F62940DD20005A4235 /* BasketPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketPresenter.swift; sourceTree = "<group>"; };
+		EA4482F72940DD20005A4235 /* BasketRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketRouter.swift; sourceTree = "<group>"; };
+		EA4482F82940DD20005A4235 /* BasketModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketModels.swift; sourceTree = "<group>"; };
+		EA4482F92940DD20005A4235 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
+		EA4482FA2940DD20005A4235 /* BasketInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketInteractor.swift; sourceTree = "<group>"; };
+		EA4482FB2940DD20005A4235 /* BasketView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasketView.xib; sourceTree = "<group>"; };
+		EA4483022941CD47005A4235 /* BasketViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewControllerFactory.swift; sourceTree = "<group>"; };
+		EA4483042941CE65005A4235 /* BasketFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketFlow.swift; sourceTree = "<group>"; };
+		EA44830E2941D3F5005A4235 /* BasketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewCell.swift; sourceTree = "<group>"; };
+		EA44830F2941D3F5005A4235 /* BasketTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasketTableViewCell.xib; sourceTree = "<group>"; };
+		EA4483122941D443005A4235 /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +151,7 @@
 				EA0FCEBB2940798100C577F2 /* Base */,
 				EA0FCEBC2940798F00C577F2 /* AppFlow.swift */,
 				EA0FCEDF2940810D00C577F2 /* HomeFlow.swift */,
+				EA4483042941CE65005A4235 /* BasketFlow.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -157,6 +180,7 @@
 			children = (
 				EA0FCEC829407AAB00C577F2 /* ViewControllerFactory.swift */,
 				EA0FCEDD2940806800C577F2 /* HomeViewControllerFactory.swift */,
+				EA4483022941CD47005A4235 /* BasketViewControllerFactory.swift */,
 			);
 			path = ViewControllerFactories;
 			sourceTree = "<group>";
@@ -166,6 +190,7 @@
 			children = (
 				EA0FCECB29407C7A00C577F2 /* Splash */,
 				EA0FCED029407FAE00C577F2 /* Home */,
+				EA4482F52940DCF2005A4235 /* Basket */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -206,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				EA0FCEEE2940AC9800C577F2 /* UICollectionViewCell.swift */,
+				EA4483122941D443005A4235 /* UITableViewCell.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -216,6 +242,29 @@
 				EA0FCEEC2940A6BD00C577F2 /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		EA4482F52940DCF2005A4235 /* Basket */ = {
+			isa = PBXGroup;
+			children = (
+				EA44830D2941D3CB005A4235 /* Cells */,
+				EA4482F62940DD20005A4235 /* BasketPresenter.swift */,
+				EA4482F72940DD20005A4235 /* BasketRouter.swift */,
+				EA4482F82940DD20005A4235 /* BasketModels.swift */,
+				EA4482F92940DD20005A4235 /* BasketViewController.swift */,
+				EA4482FA2940DD20005A4235 /* BasketInteractor.swift */,
+				EA4482FB2940DD20005A4235 /* BasketView.xib */,
+			);
+			path = Basket;
+			sourceTree = "<group>";
+		};
+		EA44830D2941D3CB005A4235 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EA44830E2941D3F5005A4235 /* BasketTableViewCell.swift */,
+				EA44830F2941D3F5005A4235 /* BasketTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,8 +335,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA4483012940DD20005A4235 /* BasketView.xib in Resources */,
 				EA0FCEAA294074DA00C577F2 /* LaunchScreen.storyboard in Resources */,
 				EA0FCEA7294074DA00C577F2 /* Assets.xcassets in Resources */,
+				EA4483112941D3F5005A4235 /* BasketTableViewCell.xib in Resources */,
 				EA0FCECF29407D8B00C577F2 /* SplashViewController.xib in Resources */,
 				EA0FCEE729408F9D00C577F2 /* GroceryCollectionViewCell.xib in Resources */,
 				EA0FCEDC29407FD400C577F2 /* HomeView.xib in Resources */,
@@ -301,16 +352,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA4482FE2940DD20005A4235 /* BasketModels.swift in Sources */,
 				EA0FCEC1294079F800C577F2 /* Navigator.swift in Sources */,
 				EA0FCEC929407AAB00C577F2 /* ViewControllerFactory.swift in Sources */,
 				EA0FCEE2294083CC00C577F2 /* main.swift in Sources */,
 				EA0FCEB3294077C200C577F2 /* NetworkManager.swift in Sources */,
 				EA0FCEDB29407FD400C577F2 /* HomeInteractor.swift in Sources */,
+				EA4482FF2940DD20005A4235 /* BasketViewController.swift in Sources */,
+				EA4483002940DD20005A4235 /* BasketInteractor.swift in Sources */,
 				EA0FCEE02940810D00C577F2 /* HomeFlow.swift in Sources */,
 				EA0FCED729407FD400C577F2 /* HomePresenter.swift in Sources */,
 				EA0FCEDA29407FD400C577F2 /* HomeViewController.swift in Sources */,
 				EA0FCEE629408F9D00C577F2 /* GroceryCollectionViewCell.swift in Sources */,
 				EA0FCEEF2940AC9800C577F2 /* UICollectionViewCell.swift in Sources */,
+				EA4483102941D3F5005A4235 /* BasketTableViewCell.swift in Sources */,
+				EA4483032941CD47005A4235 /* BasketViewControllerFactory.swift in Sources */,
 				EA0FCE9E294074D900C577F2 /* AppDelegate.swift in Sources */,
 				EA0FCEDE2940806800C577F2 /* HomeViewControllerFactory.swift in Sources */,
 				EA0FCED929407FD400C577F2 /* HomeModels.swift in Sources */,
@@ -318,9 +374,13 @@
 				EA0FCEC629407A7800C577F2 /* DependencyFactory.swift in Sources */,
 				EA0FCEBD2940798F00C577F2 /* AppFlow.swift in Sources */,
 				EA0FCEED2940A6BD00C577F2 /* Constants.swift in Sources */,
+				EA4482FC2940DD20005A4235 /* BasketPresenter.swift in Sources */,
+				EA4482FD2940DD20005A4235 /* BasketRouter.swift in Sources */,
 				EA0FCEBF294079E200C577F2 /* FlowController.swift in Sources */,
+				EA4483132941D443005A4235 /* UITableViewCell.swift in Sources */,
 				EA0FCEC329407A1A00C577F2 /* NavigatorFlowController.swift in Sources */,
 				EA0FCECE29407D8B00C577F2 /* SplashViewController.swift in Sources */,
+				EA4483052941CE65005A4235 /* BasketFlow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

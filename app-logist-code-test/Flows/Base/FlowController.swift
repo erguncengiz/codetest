@@ -5,12 +5,10 @@
 //  Created by Ergün Yunus Cengiz on 7.12.2022.
 //
 
-import Foundation
 import UIKit
 
 protocol FlowControllerProtocol: UIViewController {
     var dependency: DependencyFactoryProtocol { get }
-    
 }
 
 class FlowController: UIViewController, FlowControllerProtocol {
