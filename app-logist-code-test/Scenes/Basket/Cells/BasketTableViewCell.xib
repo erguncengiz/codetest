@@ -46,13 +46,21 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPE-Fs-NJa">
                                 <rect key="frame" x="0.0" y="-3" width="20" height="35"/>
+                                <color key="tintColor" red="0.094765407260000004" green="0.2231809324" blue="0.46150962750000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="minus.square.fill" catalog="system" title=""/>
+                                <connections>
+                                    <action selector="minusClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="UcR-fc-GQp"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mpy-L2-3LB">
                                 <rect key="frame" x="61.000000000000007" y="-3" width="20.333333333333336" height="35"/>
+                                <color key="tintColor" red="0.094765407260000004" green="0.2231809324" blue="0.46150962750000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="plus.app.fill" catalog="system" title=""/>
+                                <connections>
+                                    <action selector="plusClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="pYQ-66-DMa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

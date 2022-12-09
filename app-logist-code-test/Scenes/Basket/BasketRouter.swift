@@ -7,15 +7,15 @@
 import UIKit
 
 protocol BasketRoutingLogic {
-    func routeToSomeWhere()
+    func routeToBack()
 }
 
 class BasketRouter: NSObject, BasketRoutingLogic {
     weak var viewController: BasketViewController?
-
+    
     // MARK: Routing Logic
     
-    func routeToSomeWhere() {
-        
+    func routeToBack() {
+       //
     }
 }

@@ -10,8 +10,8 @@ protocol HomeDisplayLogic: AnyObject {
     func display(viewModel: Home.Grocery.ViewModel)
     func didReceiveData()
     func setSelectedGrocery(index: Int, count: Int?, grocery: Home.Product?)
-    func removeSelectedGrocery(index: Int)
-    func setCurrentBasketCount(count: Int)
+    func removeSelectedGrocery(grocery: Home.Product?)
+    func setCurrentBasketCount()
 }
 
 class HomeViewController: UIViewController, HomeDisplayLogic {
@@ -27,6 +27,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     var interactor: HomeBusinessLogic?
     var router: (NSObjectProtocol & HomeRoutingLogic)?
     var cells: [Home.Cell]?
+    var groceryCell = GroceryCollectionViewCell()
     
     // MARK: View lifecycle
     
@@ -58,6 +59,34 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         flowLayout.sectionInset = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
     }
     
+    func resetCells(count: Int, id: String) {
+        for item in collectionView.visibleCells {
+            let tmpItem = item as? GroceryCollectionViewCell
+            if tmpItem?.currentModel?.id == id {
+                tmpItem?.setCounterLabelText(count: count)
+                tmpItem?.selectedGroceryEdit(count: count)
+            }
+        }
+    }
+    
+    func makeZeroFromCell(id: String) {
+        for item in collectionView.visibleCells {
+            let tmpItem = item as? GroceryCollectionViewCell
+            if tmpItem?.currentModel?.id == id {
+                tmpItem?.setCounterLabelText(count: 0)
+                tmpItem?.selectedGroceryEdit(count: 0)
+            }
+        }
+    }
+    
+    func makeZeroAllCells() {
+        for item in collectionView.visibleCells {
+            let tmpItem = item as? GroceryCollectionViewCell
+            tmpItem?.setCounterLabelText(count: 0)
+            tmpItem?.selectedGroceryEdit(count: 0)
+        }
+    }
+    
     func configureCountLabel() {
         basketCountLabel.backgroundColor = .orange
         basketCountLabel.layer.cornerRadius = 8
@@ -82,16 +111,35 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         interactor?.setSelectedGrocery(index: index, count: count, grocery: grocery)
     }
     
-    func removeSelectedGrocery(index: Int) {
-        interactor?.removeSelectedGrocery(index: index)
+    func removeSelectedGrocery(grocery: Home.Product?) {
+        interactor?.removeSelectedGrocery(grocery: grocery)
+        makeZeroFromCell(id: (grocery?.id)!)
     }
     
-    func setCurrentBasketCount(count: Int) {
-        basketCountLabel.text = "\(count)"
+    func setCurrentBasketCount() {
+        let count = interactor?.calculateBasketGroceryCount()
+        basketCountLabel.text = "\(count ?? 0)"
     }
     
     @IBAction func didBasketClicked(_ sender: Any) {
         router?.routeToBasket(vc: self)
+    }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "Uyarı", message: "Stok sınırına ulaştınız. Daha fazla eklenemez", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Tamam", style: .default, handler: { action in
+            switch action.style{
+            case .default:
+                print("default")
+                
+            case .cancel:
+                print("cancel")
+                
+            default:
+                break
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

@@ -39,4 +39,21 @@ class NavigationFlowController: FlowController, UINavigationControllerDelegate {
             navigation.pushViewController(viewController, animated: animated)
         }
     }
+    
+    func back(animated: Bool) {
+        back(by: 1, animated: animated)
+    }
+    
+    func back(by index: Int, animated: Bool) {
+        let count = navigation.viewControllers.count
+        
+        for i in (count - index) ..< (count - 1) {
+            let viewController = navigation.viewControllers.remove(at: i)
+            viewController.removeFromParent()
+        }
+        
+        if navigation.popViewController(animated: animated) == nil {
+            back(by: index, animated: animated)
+        }
+    }
 }

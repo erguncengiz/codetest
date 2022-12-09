@@ -9,6 +9,8 @@ import Foundation
 
 protocol AppFlowProtocol: FlowControllerProtocol {
     func route(to destination: Navigator.Destination, animated: Bool)
+    func back(animated: Bool)
+    func back(by index: Int, animated: Bool)
 }
 
 class AppFlow: NavigationFlowController, AppFlowProtocol {
@@ -39,9 +41,18 @@ class AppFlow: NavigationFlowController, AppFlowProtocol {
         push(viewController: flow, animated: animated)
     }
     
-//    func route(to destination: Navigator.Destination.Basket, animated: Bool) {
-//        let flow = BasketFlow(dependency: dependency)
-//        flow.route(to: destination, animated: false)
-//        push(viewController: flow, animated: animated)
-//    }
+    override func back(animated: Bool) {
+        back(by: 1, animated: animated)
+    }
+    
+    override func back(by index: Int, animated: Bool) {
+        guard let navigationController = navigationController else { return }
+        let count = navigationController.viewControllers.count
+
+        for i in (count - index) ..< (count - 1) {
+            let viewController = navigationController.viewControllers.remove(at: i)
+            viewController.removeFromParent()
+        }
+        navigationController.popViewController(animated: animated)
+    }
 }

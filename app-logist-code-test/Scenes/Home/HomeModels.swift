@@ -8,7 +8,7 @@ import UIKit
 
 enum Home {
     
-    struct Product: Codable {
+    struct Product: Codable, Equatable {
         let id: String?
         let name: String?
         let price: Float?
