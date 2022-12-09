@@ -38,6 +38,6 @@ class HomePresenter: HomePresentationLogic {
     }
     
     func sendCountOfBasket(count: Int) {
-        viewController?.setCurrentBasketCount(count: count)
+        viewController?.setCurrentBasketCount()
     }
 }

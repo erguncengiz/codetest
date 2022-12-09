@@ -26,7 +26,15 @@ struct ViewControllerFactory: ViewControllerFactoryProtocol {
     func makeBasket(dependency: DependencyFactoryProtocol, rootVC: HomeViewController) -> UIViewController {
         let viewController = BasketViewController(nibName: "BasketView", bundle: nil)
         //set viewController values
+        let presenter = BasketPresenter()
+        let router = BasketRouter()
+        let interactor = BasketInteractor()
+        router.viewController = viewController
+        presenter.viewController = viewController
+        interactor.presenter = presenter
+        viewController.router = router
         viewController.rootVC = rootVC
+        viewController.interactor = interactor
         return viewController
     }
     

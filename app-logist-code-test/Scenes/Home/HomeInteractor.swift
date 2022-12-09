@@ -10,11 +10,13 @@ import Alamofire
 protocol HomeBusinessLogic {
     func handle(request: Home.Grocery.Request)
     func setSelectedGrocery(index: Int, count: Int?, grocery: Home.Product?)
-    func removeSelectedGrocery(index: Int)
+    func removeSelectedGrocery(grocery: Home.Product?)
     func getSelectedGroceries() -> [Basket.BasketGroceries.Groceries]
+    func calculateBasketGroceryCount() -> Int
 }
 
 class HomeInteractor: HomeBusinessLogic {
+    
     // MARK: Variables
     
     var presenter: HomePresentationLogic?
@@ -36,6 +38,13 @@ class HomeInteractor: HomeBusinessLogic {
     }
     
     func getSelectedGroceries() -> [Basket.BasketGroceries.Groceries] {
+        for grocery in selectedGroceries {
+            if grocery.count == 0 {
+                if let index = selectedGroceries.firstIndex(where: {$0 == grocery}) {
+                    selectedGroceries.remove(at: index)
+                }
+            }
+        }
         return selectedGroceries
     }
     
@@ -48,9 +57,11 @@ class HomeInteractor: HomeBusinessLogic {
     }
     
     func setSelectedGrocery(index: Int, count: Int?, grocery: Home.Product?) {
+        let indexOfGrocery = getCurrentIndex(grocery: grocery)
+
         for item in selectedGroceries {
             if grocery?.id == item.grocery.id {
-                selectedGroceries.remove(at: index)
+                selectedGroceries.remove(at: indexOfGrocery ?? 0)
             }
         }
 
@@ -59,8 +70,18 @@ class HomeInteractor: HomeBusinessLogic {
         presenter?.sendCountOfBasket(count: calculateBasketGroceryCount())
     }
     
-    func removeSelectedGrocery(index: Int) {
-        selectedGroceries.remove(at: index)
+    func removeSelectedGrocery(grocery: Home.Product?) {
+        let indexOfGrocery = getCurrentIndex(grocery: grocery)
+        selectedGroceries.remove(at: indexOfGrocery!)
         presenter?.sendCountOfBasket(count: calculateBasketGroceryCount())
+    }
+    
+    func getCurrentIndex(grocery: Home.Product?) -> Int? {
+        var productList: [Home.Product] = []
+        for item in selectedGroceries {
+            productList.append(item.grocery)
+        }
+        let indexOfGrocery = productList.firstIndex(where: {$0 == grocery})
+        return indexOfGrocery
     }
 }

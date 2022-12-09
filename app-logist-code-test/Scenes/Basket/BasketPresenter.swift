@@ -7,7 +7,8 @@
 import UIKit
 
 protocol BasketPresentationLogic {
-    func present(response: Basket.Something.Response)
+    func present(response: Basket.BuyGroceries.Response)
+    func present(message: String)
 }
 
 class BasketPresenter: BasketPresentationLogic {
@@ -15,8 +16,12 @@ class BasketPresenter: BasketPresentationLogic {
 
     // MARK: Presentation Logic
     
-    func present(response: Basket.Something.Response) {
-        let viewModel = Basket.Something.ViewModel()
+    func present(response: Basket.BuyGroceries.Response) {
+        let viewModel = Basket.BuyGroceries.ViewModel()
         viewController?.display(viewModel: viewModel)
+    }
+    
+    func present(message: String) {
+        viewController?.display(message: message)
     }
 }

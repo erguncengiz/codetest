@@ -9,7 +9,7 @@ import UIKit
 enum Basket {
     
     enum BasketGroceries {
-        struct Groceries {
+        struct Groceries: Equatable {
             let count: Int
             let grocery: Home.Product
         }
@@ -27,7 +27,7 @@ enum Basket {
     }
     
     // MARK: Use cases
-    enum Something {
+    enum BuyGroceries {
         struct Request {
         }
         struct Response {
@@ -35,4 +35,27 @@ enum Basket {
         struct ViewModel {
         }
     }
+    
+    // MARK: - BasketResponse
+    struct BasketResponse: Codable {
+        let orderID, message: String
+    }
+    
+    // MARK: - BasketResponse
+    struct BasketErrorResponse: Codable {
+        let error: String
+    }
+    
+    // MARK: - BasketRequest
+    struct BasketRequest: Codable {
+        let products: [Product]
+    }
+
+    // MARK: - Product
+    struct Product: Codable {
+        let id: String
+        let amount: Int
+    }
 }
+
+

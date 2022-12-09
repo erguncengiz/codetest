@@ -14,11 +14,39 @@ class NetworkManager {
     static let shared = NetworkManager()
     private init(){}
 
-    let headers : HTTPHeaders = [
-        "Accept": "*/*",
-        "User-Agent": "Mozilla/5.0 (compatible; Rigor/1.0.0; http://rigor.com)"
-    ]
+    
+    public func buyGroceries(_ method: HTTPMethod, url: String, requestModel: Basket.BasketRequest?, model: Basket.BasketResponse.Type, errorModel: Basket.BasketErrorResponse.Type, completion: @escaping (AFResult<Codable>) -> Void) {
 
+        AF.request(
+            url,
+            method: method,
+            parameters: NetworkManager.toParameters(model: requestModel),
+            encoding: JSONEncoding.default,
+            headers: nil
+        ).validate(statusCode: 200..<600).responseJSON { response in
+
+            if case .success(let value) = response.result {
+                    do {
+                        let responseJsonData = JSON(value)
+                        if response.response?.statusCode == 400 {
+                            let responseModel = try JSONDecoder().decode(errorModel.self, from: responseJsonData.rawData())
+                            print("Error!")
+                            completion(.success(responseModel))
+                        } else {
+                            let responseModel = try JSONDecoder().decode(model.self, from: responseJsonData.rawData())
+                            print("Success!")
+                            completion(.success(responseModel))
+                        }
+                    }
+                    catch let parsingError {
+                        print("Success (error): \(parsingError)")
+                    }
+            } else if case .failure(let error) = response.result {
+                print("Failure: \(error)")
+                completion(.failure(error))
+            }
+        }
+    }
 
     public func request<T:Codable> (_ method: HTTPMethod, url: String, requestModel: T?, model: T.Type, completion: @escaping (AFResult<Codable>) -> Void)
     {
@@ -27,12 +55,13 @@ class NetworkManager {
             method: method,
             parameters: NetworkManager.toParameters(model: requestModel),
             encoding: URLEncoding.default,
-            headers: headers
+            headers: nil
         ).validate(statusCode: 200..<600).responseJSON{ response in
 
             if case .success(let value) = response.result {
                     do {
                         let responseJsonData = JSON(value)
+                        print(responseJsonData)
                         let responseModel = try JSONDecoder().decode(model.self, from: responseJsonData.rawData())
                         print("Success!")
                         completion(.success(responseModel))
@@ -59,9 +88,16 @@ class NetworkManager {
         return parameters! as [String: AnyObject]
     }
 
-    static func modelToJson<T:Encodable>(model:T)  -> Data?
+    static func modelToJson<T:Encodable>(model:T) -> Data?
     {
-        return try! JSONEncoder().encode(model.self)
+        var jsonData: Data?
+        
+        do {
+            jsonData = try JSONEncoder().encode(model)
+            let jsonString = String(data: jsonData!, encoding: .utf8)!
+        } catch { print(error) }
+        
+        return jsonData
     }
 
     static func jsonToParameters(from data: Data) -> [String: Any]?

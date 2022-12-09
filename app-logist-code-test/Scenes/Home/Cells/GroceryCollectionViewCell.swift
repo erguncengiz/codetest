@@ -8,7 +8,12 @@
 import UIKit
 import SDWebImage
 
-class GroceryCollectionViewCell: UICollectionViewCell {
+protocol GroceryCollectionViewCellProtocol {
+    func setCounterLabelText(count: Int)
+    func selectedGroceryEdit(count: Int)
+}
+
+class GroceryCollectionViewCell: UICollectionViewCell, GroceryCollectionViewCellProtocol {
     
     // MARK: Variables
     
@@ -69,6 +74,8 @@ class GroceryCollectionViewCell: UICollectionViewCell {
         if addedStock < currentStock  {
             addedStock += 1
             viewController?.setSelectedGrocery(index: currentIndex, count: addedStock, grocery: currentModel)
+        } else {
+            viewController?.showAlert()
         }
         counterLabel.text = "\(addedStock)"
     }
@@ -79,9 +86,22 @@ class GroceryCollectionViewCell: UICollectionViewCell {
             viewController?.setSelectedGrocery(index: currentIndex, count: addedStock, grocery: currentModel)
             if addedStock == 0 {
                 minusIsHidden = true
-                viewController?.removeSelectedGrocery(index: currentIndex)
+                viewController?.removeSelectedGrocery(grocery: currentModel)
             }
         }
         counterLabel.text = "\(addedStock)"
     }
+    
+    func setCounterLabelText(count: Int) {
+        addedStock = count
+        counterLabel.text = "\(addedStock)"
+    }
+    
+    func selectedGroceryEdit(count: Int) {
+        viewController?.setSelectedGrocery(index: currentIndex, count: count, grocery: currentModel)
+        if count == 0 {
+            minusIsHidden = true
+        }
+    }
+    
 }

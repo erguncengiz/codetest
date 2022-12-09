@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BasketViewController" customModule="app_logist_code_test" customModuleProvider="target">
             <connections>
                 <outlet property="tableView" destination="EiW-aB-Wd7" id="Uel-tN-d3a"/>
+                <outlet property="totalPriceLabel" destination="jTo-P5-jcr" id="IbE-B3-AH7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -32,21 +33,60 @@
                     <buttonConfiguration key="configuration" style="plain" title="SİL">
                         <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="deleteClicked:" destination="-1" eventType="touchUpInside" id="KAp-t2-KQU"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0GK-hX-c00">
                     <rect key="frame" x="307" y="64" width="87" height="38"/>
+                    <color key="tintColor" red="0.094765407260000004" green="0.2231809324" blue="0.46150962750000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="KAPAT">
                         <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="closeClicked:" destination="-1" eventType="touchUpInside" id="a9n-Y6-HMH"/>
+                    </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EiW-aB-Wd7">
                     <rect key="frame" x="0.0" y="136" width="414" height="630"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rdV-O0-OeL">
-                    <rect key="frame" x="0.0" y="802" width="414" height="94"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <rect key="frame" x="0.0" y="776" width="414" height="120"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toplam:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncH-4L-IrL">
+                            <rect key="frame" x="38" y="31" width="61" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTo-P5-jcr">
+                            <rect key="frame" x="107" y="29" width="52" height="24"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <color key="textColor" red="0.094765407260000004" green="0.2231809324" blue="0.46150962750000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9O-hc-RBr">
+                            <rect key="frame" x="257" y="18" width="130" height="54"/>
+                            <color key="tintColor" red="0.094765407260000004" green="0.2231809324" blue="0.46150962750000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Sepeti Onayla"/>
+                            <connections>
+                                <action selector="approveBasketClicked:" destination="-1" eventType="touchUpInside" id="HXK-Oh-yKk"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="0.17831643211920525" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="ncH-4L-IrL" firstAttribute="top" secondItem="rdV-O0-OeL" secondAttribute="top" constant="31" id="6bO-lo-HAD"/>
+                        <constraint firstItem="ncH-4L-IrL" firstAttribute="leading" secondItem="rdV-O0-OeL" secondAttribute="leading" constant="38" id="Buk-Zm-lOL"/>
+                        <constraint firstItem="jTo-P5-jcr" firstAttribute="leading" secondItem="ncH-4L-IrL" secondAttribute="trailing" constant="8" symbolic="YES" id="R0L-Kx-OS8"/>
+                        <constraint firstItem="jTo-P5-jcr" firstAttribute="top" secondItem="rdV-O0-OeL" secondAttribute="top" constant="29" id="Rc2-M2-fYm"/>
+                        <constraint firstItem="C9O-hc-RBr" firstAttribute="height" secondItem="rdV-O0-OeL" secondAttribute="height" multiplier="0.45" id="UGX-c1-oWd"/>
+                        <constraint firstAttribute="trailing" secondItem="C9O-hc-RBr" secondAttribute="trailing" constant="27" id="kLr-IN-t1c"/>
+                        <constraint firstItem="C9O-hc-RBr" firstAttribute="top" secondItem="rdV-O0-OeL" secondAttribute="top" constant="18" id="qO0-wG-Wpe"/>
+                    </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="8j8-uf-2JT"/>
@@ -62,7 +102,7 @@
                 <constraint firstItem="EiW-aB-Wd7" firstAttribute="top" secondItem="re5-S3-Q0c" secondAttribute="bottom" constant="41" id="WA0-dr-RLL"/>
                 <constraint firstItem="8j8-uf-2JT" firstAttribute="trailing" secondItem="EiW-aB-Wd7" secondAttribute="trailing" id="YNe-Tq-XAb"/>
                 <constraint firstItem="rdV-O0-OeL" firstAttribute="leading" secondItem="8j8-uf-2JT" secondAttribute="leading" id="dWF-fV-IJQ"/>
-                <constraint firstItem="rdV-O0-OeL" firstAttribute="top" secondItem="EiW-aB-Wd7" secondAttribute="bottom" constant="36" id="gXS-D1-mI2"/>
+                <constraint firstItem="rdV-O0-OeL" firstAttribute="top" secondItem="EiW-aB-Wd7" secondAttribute="bottom" constant="10" id="gXS-D1-mI2"/>
                 <constraint firstItem="EiW-aB-Wd7" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.703125" id="icV-se-mZW"/>
                 <constraint firstItem="re5-S3-Q0c" firstAttribute="centerX" secondItem="8j8-uf-2JT" secondAttribute="centerX" id="lKU-gJ-kam"/>
                 <constraint firstItem="re5-S3-Q0c" firstAttribute="top" secondItem="8j8-uf-2JT" secondAttribute="top" constant="20" id="rJy-fs-fch"/>
